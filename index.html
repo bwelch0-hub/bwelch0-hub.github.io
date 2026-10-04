@@ -1101,23 +1101,31 @@
       }
     }
 
-    #strategic .product-slide.strategic-document-slide .product-media-wrap,
-    #strategic .product-slide.strategic-document-slide .product-copy {
+    /* Strategic slots 01 and 04: force true vertical centering for portrait documents and copy. */
+    #strategic .product-slide.strategic-document-slide .product-media-wrap {
+      position: relative;
       justify-content: center;
+      align-self: stretch;
+      min-height: 0;
     }
     #strategic .product-slide.strategic-document-slide .product-media.document {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: auto;
       height: min(82%, 390px);
       max-height: 390px;
-      align-self: center;
-      margin: auto;
-      transform: none;
+      margin: 0;
+      transform: translate(-50%, -50%);
     }
     #strategic .product-slide.strategic-document-slide .product-media.document img {
       object-position: center;
       margin: 0 auto;
     }
     #strategic .product-slide.strategic-document-slide .product-copy {
+      align-self: stretch;
+      justify-content: center;
+      min-height: 0;
       transform: none;
     }
     #strategic .product-slide.strategic-document-slide .product-copy p {
