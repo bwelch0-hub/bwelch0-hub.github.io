@@ -100,7 +100,7 @@
       left: 0;
       width: 100%;
       z-index: 35;
-      padding: 0 clamp(16px, 3vw, 50px);
+      padding: 0;
       transition: top .75s var(--ease), opacity .6s var(--ease), transform .7s var(--ease);
     }
 
@@ -126,8 +126,10 @@
       background: transparent;
       color: #35403a;
       cursor: pointer;
-      min-width: max-content;
-      padding: 0 clamp(14px, 1.8vw, 28px);
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 0 clamp(10px, 1.35vw, 22px);
+      text-align: center;
       position: relative;
       font-size: clamp(12px, 1.08vw, 15px);
       font-weight: 700;
@@ -434,7 +436,7 @@
       .masthead .tagline { font-size: clamp(16px, 3vw, 24px); }
       .nav-shell { top: 132px; padding: 0; }
       .nav { justify-content: flex-start; padding-inline: 5px; background: rgba(219,233,244,.86); }
-      .tab { padding-inline: 17px; }
+      .tab { flex: 0 0 auto; min-width: max-content; padding-inline: 17px; }
       .media-field { inset: 14% -18% -8% -18%; }
       .particle { width: clamp(88px, 23vw, 150px); }
       .panel { padding-top: 215px; }
