@@ -1510,6 +1510,35 @@
         bottom: 18px;
       }
     }
+
+    /* Mobile-only vertical centering of reel content — 2026-10-13d */
+    @media (max-width: 680px) {
+      /* Center each reel's media/divider/copy stack between the top and bottom arrows.
+         About and Social Media Campaigns are intentionally excluded. */
+      :is(#strategic, #articles, #events, #technical) .product-slide {
+        grid-template-rows: max-content 1px max-content;
+        align-content: center;
+        padding-top: 62px;
+        padding-bottom: 62px;
+      }
+
+      :is(#strategic, #articles, #events, #technical) .product-media-wrap,
+      :is(#strategic, #articles, #events, #technical) .product-copy {
+        justify-content: center;
+      }
+
+      #technical .product-slide {
+        align-content: center;
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      #technical .product-media-wrap,
+      #technical .product-slide.skill-slide .product-copy {
+        justify-content: center;
+      }
+    }
+
 </style>
 </head>
 <body>
