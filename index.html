@@ -1379,6 +1379,137 @@
       }
     }
 
+
+    /* Mobile-only compact reel positioning — 2026-10-13c */
+    @media (max-width: 680px) {
+      /* Keep the six home-page tabs contained in their equal-width cells. */
+      .tab {
+        min-width: 0;
+        padding-inline: 2px;
+        overflow: hidden;
+        white-space: normal;
+        line-height: 1.03;
+      }
+      .tab[data-panel="strategic"] {
+        font-size: clamp(7.2px, 1.95vw, 8.1px);
+        letter-spacing: -.02em;
+      }
+
+      /* Put the close control in its own band ABOVE the reel.
+         This lets the reel stay full-width and centered on the phone. */
+      :is(#strategic, #articles, #social, #events, #technical) {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 208px;
+      }
+      :is(#strategic, #articles, #social, #events, #technical) .panel-inner {
+        width: 100%;
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      :is(#strategic, #articles, #social, #events, #technical) .close {
+        top: calc(110px + var(--nav-h) + 7px);
+        right: 10px;
+        width: 28px;
+        height: 28px;
+        z-index: 70;
+      }
+
+      /* Compact stacked reel: media starts near the top instead of being
+         vertically centered inside a very tall empty box. */
+      :is(#strategic, #articles, #events, #technical) .product-viewer {
+        width: 100%;
+      }
+      :is(#strategic, #articles, #events, #technical) .product-slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1px max-content;
+        align-content: start;
+        align-items: stretch;
+        padding: 58px 14px 64px;
+        gap: 16px;
+        overflow: hidden;
+      }
+      :is(#strategic, #articles, #events, #technical) .product-media-wrap {
+        width: 100%;
+        min-height: 0;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      :is(#strategic, #articles, #events, #technical) .product-copy {
+        width: 100%;
+        min-height: 0;
+        justify-content: flex-start;
+      }
+      :is(#strategic, #articles, #events) .product-viewer {
+        height: 620px;
+        min-height: 620px;
+      }
+      :is(#strategic, #articles, #events) .product-media {
+        width: min(100%, 460px);
+        max-height: 220px;
+        margin: 0 auto;
+      }
+      :is(#strategic, #articles, #events) .product-media.document {
+        width: auto;
+        height: 210px;
+        max-height: 210px;
+        transform: none;
+      }
+      :is(#strategic, #articles, #events) .product-media.video-slot,
+      :is(#strategic, #articles, #events) .product-media.article-full {
+        max-height: 220px;
+        transform: none;
+      }
+      :is(#strategic, #articles, #events) .product-copy p {
+        font-size: 13.25px;
+        line-height: 1.48;
+      }
+
+      /* Technical Expertise has longer copy, so keep a little more height,
+         but anchor the icon/copy stack at the top and use the space efficiently. */
+      #technical .product-viewer {
+        height: 760px;
+        min-height: 760px;
+      }
+      #technical .product-slide {
+        grid-template-rows: max-content 1px max-content;
+        align-content: start;
+        padding: 58px 14px 66px;
+        gap: 16px;
+      }
+      #technical .product-media-wrap {
+        align-items: center;
+        justify-content: flex-start;
+      }
+      #technical .product-media.icon-card {
+        width: min(100%, 170px);
+        max-width: 170px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #technical .product-slide.skill-slide .product-copy {
+        justify-content: flex-start;
+      }
+      #technical .product-slide.skill-slide .product-copy h2 {
+        margin: 0 0 10px;
+        font-size: clamp(20px, 5.5vw, 26px);
+        line-height: 1.12;
+      }
+      #technical .product-slide.skill-slide .product-copy p {
+        margin: 0;
+        font-size: 12.5px;
+        line-height: 1.44;
+      }
+
+      /* Controls keep their own clear zones and never sit on media/copy. */
+      .product-arrow.up { top: 10px; }
+      .product-arrow.down { bottom: 10px; }
+      .product-count {
+        right: 10px;
+        bottom: 18px;
+      }
+    }
 </style>
 </head>
 <body>
