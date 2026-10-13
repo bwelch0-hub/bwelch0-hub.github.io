@@ -1150,6 +1150,137 @@
       }
     }
 
+
+    /* Mobile-only containment and control-spacing fixes — 2026-10-13 */
+    @media (max-width: 680px) {
+      /* Keep all six navigation labels evenly spaced and contained in their own tabs. */
+      .nav {
+        justify-content: stretch;
+        overflow-x: hidden;
+        padding-inline: 0;
+      }
+      .tab {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        padding-inline: 4px;
+        font-size: clamp(8.5px, 2.45vw, 10px);
+        line-height: 1.06;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+        hyphens: none;
+      }
+      .tab:not(:last-child)::after {
+        top: 10px;
+        height: 36px;
+      }
+
+      /* Reserve a real right-hand gutter for the close button so it never overlaps a viewer. */
+      :is(#strategic, #articles, #social, #events, #technical) .panel-inner {
+        width: calc(100% - 52px);
+        margin-left: 0;
+        margin-right: 52px;
+      }
+      :is(#strategic, #articles, #social, #events, #technical) .close {
+        right: 8px;
+        z-index: 60;
+      }
+
+      /* Give the reel controls their own top/bottom zones and contain every slide. */
+      .product-viewer {
+        overflow: hidden;
+      }
+      .product-slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1px auto;
+        align-content: center;
+        align-items: center;
+        padding: 70px 18px 74px;
+        gap: 22px;
+        overflow: hidden;
+      }
+      .product-media-wrap,
+      .product-copy {
+        min-height: 0;
+        justify-content: center;
+      }
+      .product-media {
+        width: min(100%, 440px);
+        max-height: 210px;
+        margin: 0 auto;
+      }
+      .product-media.document {
+        width: auto;
+        height: 220px;
+        max-height: 220px;
+        transform: none;
+      }
+      .product-media.video-slot {
+        max-height: 220px;
+        transform: none;
+      }
+      .product-copy h2 {
+        margin: 0 0 12px;
+        font-size: clamp(22px, 6vw, 29px);
+        line-height: 1.12;
+      }
+      .product-copy p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.52;
+      }
+      .product-arrow.up { top: 14px; }
+      .product-arrow.down { bottom: 14px; }
+      .product-count {
+        right: 14px;
+        bottom: 27px;
+      }
+
+      /* The technical reel has longer copy, so each mobile slot gets enough height to stay self-contained. */
+      #technical .product-viewer {
+        height: 940px;
+        min-height: 940px;
+      }
+      #technical .product-slide {
+        grid-template-rows: auto 1px auto;
+        align-content: center;
+        padding-top: 72px;
+        padding-bottom: 78px;
+        gap: 24px;
+        overflow: hidden;
+      }
+      #technical .product-media.icon-card {
+        width: min(100%, 185px);
+        max-width: 185px;
+      }
+      #technical .product-slide.skill-slide .product-copy {
+        justify-content: center;
+      }
+      #technical .product-slide.skill-slide .product-copy h2 {
+        margin: 0 0 12px;
+        font-size: clamp(21px, 5.9vw, 28px);
+        line-height: 1.13;
+      }
+      #technical .product-slide.skill-slide .product-copy p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* Strategic / Articles / Events need enough room for media + copy without controls crossing either. */
+      :is(#strategic, #articles, #events) .product-viewer {
+        height: 720px;
+        min-height: 720px;
+      }
+
+      /* Keep the social carousel clear of the close-button gutter too. */
+      #social .social-campaign-layout {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
 </style>
 </head>
 <body>
