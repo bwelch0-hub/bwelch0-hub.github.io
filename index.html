@@ -1281,6 +1281,104 @@
       }
     }
 
+
+    /* Mobile-only centering and space refinements — 2026-10-13b */
+    @media (max-width: 680px) {
+      /* Keep every tab inside its own equal-width cell. */
+      .nav {
+        width: 100%;
+        justify-content: stretch;
+        overflow: hidden;
+      }
+      .tab {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: none;
+        padding-inline: 2px;
+        overflow: hidden;
+        text-overflow: clip;
+        white-space: normal;
+        line-height: 1.04;
+      }
+      .tab[data-panel="strategic"] {
+        font-size: clamp(7.5px, 2.08vw, 8.7px);
+        letter-spacing: -.015em;
+      }
+
+      /* Use more of the phone width, but keep the reel itself truly centered.
+         The close button sits in the clear space to the right, not on top of the reel. */
+      :is(#strategic, #articles, #social, #events, #technical) {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 178px;
+      }
+      :is(#strategic, #articles, #social, #events, #technical) .panel-inner {
+        width: calc(100% - 40px);
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      :is(#strategic, #articles, #social, #events, #technical) .close {
+        width: 28px;
+        height: 28px;
+        right: 0;
+        z-index: 70;
+      }
+      :is(#strategic, #articles, #social, #events, #technical) .close::before,
+      :is(#strategic, #articles, #social, #events, #technical) .close::after {
+        width: 14px;
+      }
+
+      /* Reduce unused vertical space while preserving dedicated control zones. */
+      :is(#strategic, #articles, #events) .product-viewer {
+        height: 660px;
+        min-height: 660px;
+      }
+      .product-slide {
+        padding: 54px 14px 60px;
+        gap: 16px;
+      }
+      .product-media {
+        max-height: 230px;
+        width: min(100%, 460px);
+      }
+      .product-media.document {
+        height: 230px;
+        max-height: 230px;
+      }
+      .product-media.video-slot {
+        max-height: 230px;
+      }
+      .product-arrow.up { top: 12px; }
+      .product-arrow.down { bottom: 12px; }
+      .product-count {
+        right: 10px;
+        bottom: 20px;
+      }
+
+      /* Technical copy is longer, but no longer needs a 940px-tall mobile reel. */
+      #technical .product-viewer {
+        height: 820px;
+        min-height: 820px;
+      }
+      #technical .product-slide {
+        padding: 56px 14px 62px;
+        gap: 18px;
+      }
+      #technical .product-media.icon-card {
+        width: min(100%, 195px);
+        max-width: 195px;
+      }
+
+      /* Let the social carousel use the same centered width as the reel pages. */
+      #social .social-campaign-layout,
+      #social .social-carousel-shell,
+      #social .social-campaign-copy {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
 </style>
 </head>
 <body>
